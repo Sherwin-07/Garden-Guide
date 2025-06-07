@@ -15,23 +15,60 @@ body {
     padding: 15px;
   }
   
-  /* Navbar styling */
-  .navbar {
-    background-color: #000000;
-  }
+/* Navbar custom styling */
+.custom-navbar {
+  background: linear-gradient(90deg, rgba(126, 213, 111, 1) 0%, rgba(0, 151, 93, 1) 100%);
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Brand Logo Styling */
+.navbar-brand-custom {
+  color: #fff !important;
+  font-size: 1.8rem;
+  font-weight: bold;
+  /*text-transform: uppercase;*/
+  letter-spacing: 1.5px;
   
-  .navbar-brand {
-    color: #7fca4d !important;
-    font-size: 1.5rem;
+}
+
+/* Navbar Links */
+.nav-link-custom {
+  color: #ffffff !important;
+  font-size: 1.8rem;
+  margin-left: 20px;
+  padding: 10px 15px;
+  font-weight: bold;
+  /*text-transform: uppercase;*/
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+/* Hover effect for Navbar Links */
+.nav-link-custom:hover {
+  color: #ffffff !important;
+  background-color: #0a582d !important;
+  border-radius: 8px;
+}
+
+/* Active Link Style */
+.nav-link-custom.active {
+  background-color: #0c6b3e !important;
+  color: #ffffff !important;
+}
+
+/* Navbar Toggle Button when collapsed */
+.navbar-toggler {
+  border-color: #ffffff;
+}
+
+/* Mobile View Styling */
+@media (max-width: 992px) {
+  .nav-link-custom {
+    padding: 8px 15px;
+    text-align: center;
   }
-  
-  .nav-link {
-    color: #64c54c !important;
-  }
-  
-  .nav-link:hover {
-    color: #000000 !important;
-  }
+}
+
   
   /* Landing Page */
   .carousel-item img {
@@ -55,23 +92,43 @@ body {
   }
   
   /* Garden Journal */
+  .journal-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
   .journal-form {
-    background-color: #f0f8ff;
+    background-color: #a5edbb;
     padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .journal-form input,
+  .journal-form select,
+  .journal-form textarea {
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .journal-form label {
+    font-weight: bold;
+    color: #006400;
+  }
+  
+  .journal-form button {
+    background-color: #006400;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
   }
   
   .journal-table {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .journal-table th,
-  .journal-table td {
-    padding: 15px;
-    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .journal-table th {
@@ -79,26 +136,22 @@ body {
     color: #fff;
   }
   
-  /* Medicinal Plants */
-  .card {
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease-in-out;
+  .journal-table td,
+  .journal-table th {
+    padding: 15px;
+    text-align: left;
   }
   
-  .card:hover {
-    transform: translateY(-10px);
+  .journal-table td {
+    background-color: #f8f9fa;
   }
   
-  .card-body {
-    text-align: center;
-  }
-  
-  .card-img-top {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+  .journal-table button {
+    margin-right: 5px;
+    background-color: #006400;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
   }
   
   /* Plant Care Guide */

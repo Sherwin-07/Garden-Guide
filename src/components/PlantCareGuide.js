@@ -1,24 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPlantData } from '../redux/actions'; // Adjust the path as necessary
 
 function PlantCareGuide() {
-  const guides = [
-    { title: 'Watering Guide', description: 'Water most plants once a week, allowing soil to dry between waterings.' },
-    { title: 'Soil Guide', description: 'Use well-draining soil for most indoor and outdoor plants.' },
-    { title: 'Temperature Guide', description: 'Maintain temperatures between 60-75°F for most indoor plants.' },
-    { title: 'Humidity Guide', description: 'Maintain a humidity level of 40-60% for tropical plants.' }
-  ];
+  const dispatch = useDispatch();
+  const { plantData } = useSelector((state) => state.plants); // Accessing plant data from Redux store
+  const { loading, error } = useSelector((state) => state.plants); // Add loading and error from state if needed
+
+  // Fetch plant data when component mounts
+  useEffect(() => {
+    dispatch(fetchPlantData());
+  }, [dispatch]);
+
+  // If data is still loading
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
+
+  // If there was an error fetching data
+  if (error) {
+    return <h2>Error fetching data: {error}</h2>;
+  }
 
   return (
     <Container>
       <h2>Plant Care Guide</h2>
       <Row>
-        {guides.map((guide, index) => (
-          <Col key={index} sm={12} md={6} className="mb-4">
+        {plantData.map((plant) => (
+          <Col key={plant.id} sm={12} md={6} className="mb-4">
             <Card>
               <Card.Body>
-                <Card.Title>{guide.title}</Card.Title>
-                <Card.Text>{guide.description}</Card.Text>
+                <Card.Title>{plant.name}</Card.Title>
+                <Card.Text>
+                  <strong>Watering Frequency:</strong> Every {plant.waterFrequency} days
+                  <br />
+                  <strong>Tip:</strong> {plant.careTip}
+                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
